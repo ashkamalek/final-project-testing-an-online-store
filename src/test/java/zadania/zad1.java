@@ -38,11 +38,12 @@ public class zad1 {
 //alias, address, city, zip/postal code, country, phone
         driver.findElement(By.name("alias")).sendKeys("alias");
         driver.findElement(By.name("address1")).sendKeys("201 Ohua Ave");
-        driver.findElement(By.name("city")).sendKeys("Honolulu");
         driver.findElement(By.name("postcode")).sendKeys("96811");
+        driver.findElement(By.name("city")).sendKeys("Honolulu");
+        driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/section/div[10]/div[1]/select")).getCssValue("United Kingdom");
         driver.findElement(By.name("phone")).sendKeys("5555555");
-        //driver.findElement(By.className("btn btn-primary float-xs-right")).submit();
-       driver.findElement(By.cssSelector("input.btn btn-primary float-xs-right")).click();
+
+        driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/footer/button")).submit();
     }
 
 }

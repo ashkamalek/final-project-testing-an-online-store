@@ -3,7 +3,11 @@ package zadania;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.concurrent.TimeUnit;
 
 public class zad2 {
     public static void main(String[] args) {
@@ -27,7 +31,12 @@ public class zad2 {
 
 //wybierze rozmiar M,
       //driver.findElement(By.xpath("//section/p[text() = 'Size']/..//li")).click();
+       // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+      //  WebElement source = driver.findElement(By.name("group[1]")); //multiple value list
 
+        //use select class to work on the weblist items
+       // Select list = new Select(source);
+      //  list.selectByIndex(1);   //select Monday
 //wybierze 5 sztuk według parametru podanego w teście,
 
 
@@ -35,7 +44,7 @@ public class zad2 {
         driver.findElement(By.className("add")).click();
 
 //przejdzie do opcji - checkout,
-        driver.findElement(By.xpath("//a[@href='//mystore-testlab.coderslab.pl/index.php?controller=cart&amp;action=show']")).click();
+       driver.findElement(By.xpath("//*[contains(text(),'Proceed to checkout')]")).click();
 
 
 

@@ -27,10 +27,7 @@ public class ogorkowekroki {
    // });
 
  // Examples
-    //alias
-    //address
-    //city
-    //zip/postal code
-    //country
-    //phone
+    //| alias | address | city | zip/postal code | country | phone |
+    //| alias | 201 Ohua Ave| Honolulu | 96811 | Poland | 5555555 |
+
 }
