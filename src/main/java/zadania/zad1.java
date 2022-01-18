@@ -1,10 +1,7 @@
 package zadania;
 
 
-import cucumber.api.junit.Cucumber;
-import io.cucumber.testng.CucumberOptions;
-import org.checkerframework.checker.units.qual.Current;
-import org.junit.runner.RunWith;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,8 +11,8 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.concurrent.TimeUnit;
 
 
-@RunWith(Cucumber.class)
-@CucumberOptions(features="scr/Cucumber/Features", plugin= {"pretty", "html:out"})
+//@RunWith(Cucumber.class)
+//@CucumberOptions(features="scr/Cucumber/Features", plugin= {"pretty", "html:out"})
 public class zad1 {
 
     public static void main(String[] args) throws InterruptedException {

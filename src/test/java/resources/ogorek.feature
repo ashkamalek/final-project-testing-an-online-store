@@ -1,12 +1,12 @@
-Feature: zad1
+Feature: test wprowadzania danych adresowych
 
-  Scenario: user can search any keyword
+  Scenario: uzupelnianie danych adresowych
 
 
     Given an open browser with https://mystore-testlab.coderslab.pl/index.php
 
     When a keyword selenium is entered in input field
 
-    Then the first one should contain selenium
+    Then srutututu
 
     And close browser
