@@ -18,6 +18,7 @@ public class zad2 {
 
 //zaloguje się na tego samego użytkownika z zadania 1,
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("https://mystore-testlab.coderslab.pl/index.php");
         driver.findElement(By.id("_desktop_user_info")).click();
 
@@ -30,32 +31,26 @@ public class zad2 {
         driver.findElement(By.xpath("//img[@alt='Brown bear printed sweater']")).click();
 
 //wybierze rozmiar M,
-      //driver.findElement(By.xpath("//section/p[text() = 'Size']/..//li")).click();
-       // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-      //  WebElement source = driver.findElement(By.name("group[1]")); //multiple value list
 
-        //use select class to work on the weblist items
-       // Select list = new Select(source);
-      //  list.selectByIndex(1);   //select Monday
+       WebElement source1 = driver.findElement(By.id("group_1")); //multiple value list
+        Select list = new Select(source1);
+        list.selectByValue("2");
 //wybierze 5 sztuk według parametru podanego w teście,
 
 
 //dodaj produkt do koszyka,
-        driver.findElement(By.className("add")).click();
+       // driver.findElement(By.className("add")).click();
 
 //przejdzie do opcji - checkout,
-       driver.findElement(By.xpath("//*[contains(text(),'Proceed to checkout')]")).click();
+       driver.findElement(By.cssSelector("div.cart-content-btn a")).click();
+       driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/div[1]/div[2]/div/a")).click();
 
-
-
-
-        //*[@class="btn btn-primary"] class="btn btn-primary
 //potwierdzi address (możesz go dodać wcześniej ręcznie),
-
+        driver.findElement(By.name("confirm-addresses")).click();
 
 //wybierze metodę odbioru - PrestaShop "pick up in store",
         driver.findElement(By.id("delivery_option_1")).click();
-
+       // driver.findElement(By.("confirmDeliveryOption")).click();
 //wybierze opcję płatności - Pay by Check,
 
 

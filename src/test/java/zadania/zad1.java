@@ -7,17 +7,18 @@ import org.checkerframework.checker.units.qual.Current;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.support.ui.Select;
 
-
-
+import java.util.concurrent.TimeUnit;
 
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features="scr/Cucumber/Features", plugin= {"pretty", "html:out"})
 public class zad1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
 
 
@@ -27,6 +28,7 @@ public class zad1 {
 
 
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("https://mystore-testlab.coderslab.pl/index.php");
         driver.findElement(By.id("_desktop_user_info")).click();
 
@@ -40,8 +42,17 @@ public class zad1 {
         driver.findElement(By.name("address1")).sendKeys("201 Ohua Ave");
         driver.findElement(By.name("postcode")).sendKeys("96811");
         driver.findElement(By.name("city")).sendKeys("Honolulu");
-        driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/section/div[10]/div[1]/select")).getCssValue("United Kingdom");
         driver.findElement(By.name("phone")).sendKeys("5555555");
+       // WebElement source = driver.findElement(By.name("id_country"));
+       // Select list = new Select(source);
+       // list.selectByVisibleText("United Kingdom");
+        // list.selectByValue("17");
+
+
+
+
+
+
 
         driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/footer/button")).submit();
     }
