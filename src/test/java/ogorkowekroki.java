@@ -1,5 +1,3 @@
-package zadania;
-
 import cucumber.api.junit.Cucumber;
 import io.cucumber.plugin.event.Node;
 import io.cucumber.testng.CucumberOptions;
