@@ -38,7 +38,6 @@ public class zad1 {
 
         driver.get("https://mystore-testlab.coderslab.pl/index.php");
         driver.findElement(By.id("_desktop_user_info")).click();
-
         driver.findElement(By.className("form-control")).sendKeys("joanna.m.malek@gmail.com");
         driver.findElement(By.name("password")).sendKeys("PastelTropics");
         driver.findElement(By.id("submit-login")).click();
