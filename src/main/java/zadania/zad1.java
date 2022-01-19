@@ -5,6 +5,8 @@ package zadania;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -19,13 +21,21 @@ public class zad1 {
 
 
 
-        System.setProperty("webdriver.opera.driver", "D:\\intellij for selenium\\opera\\operadriver_win64\\operadriver.exe");
-        WebDriver driver = new OperaDriver();
+        //System.setProperty("webdriver.chrome.driver", "D:\\intellij for selenium\\chrome\\chromedriver.exe");
+       // WebDriver driver = new ChromeDriver();
 
+      //  System.setProperty("webdriver.opera.driver", "D:\\intellij for selenium\\opera\\operadriver_win64\\operadriver.exe");
+      //  WebDriver driver = new OperaDriver();
 
+       System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
+        WebDriver driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
 
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().deleteAllCookies();
+        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+
         driver.get("https://mystore-testlab.coderslab.pl/index.php");
         driver.findElement(By.id("_desktop_user_info")).click();
 
@@ -40,9 +50,9 @@ public class zad1 {
         driver.findElement(By.name("postcode")).sendKeys("96811");
         driver.findElement(By.name("city")).sendKeys("Honolulu");
         driver.findElement(By.name("phone")).sendKeys("5555555");
-       // WebElement source = driver.findElement(By.name("id_country"));
-       // Select list = new Select(source);
-       // list.selectByVisibleText("United Kingdom");
+        WebElement source = driver.findElement(By.name("id_country"));
+        Select list = new Select(source);
+        list.selectByVisibleText("United Kingdom");
         // list.selectByValue("17");
 
 

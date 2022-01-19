@@ -1,9 +1,9 @@
-import cucumber.api.junit.Cucumber;
-import io.cucumber.testng.CucumberOptions;
-import org.junit.runner.RunWith;
+package zadania;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(features="scr/Cucumber/Features", plugin= {"pretty", "html:out"})
+
+
+
+
 
 
 public class ogorkowyStepDefinition {
@@ -11,7 +11,7 @@ public class ogorkowyStepDefinition {
 
 
 
-    //Given("an open browser with https://mystore-testlab.coderslab.pl/index.php"
+ // Given("an open browser with https://mystore-testlab.coderslab.pl/index.php"
          public void refillAddress( ){
         // Write code here that turns the phrase above into concrete actions
       throw new io.cucumber.java8.PendingException();

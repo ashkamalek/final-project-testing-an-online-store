@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -13,12 +14,24 @@ public class zad2 {
     public static void main(String[] args) {
 
 
-        System.setProperty("webdriver.opera.driver", "D:\\intellij for selenium\\opera\\operadriver_win64\\operadriver.exe");
-        WebDriver driver = new OperaDriver();
+
+        System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
+        WebDriver driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
+
+
+
+
+       // System.setProperty("webdriver.opera.driver", "D:\\intellij for selenium\\opera\\operadriver_win64\\operadriver.exe");
+       // WebDriver driver = new OperaDriver();
+
+
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 //zaloguje się na tego samego użytkownika z zadania 1,
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
         driver.get("https://mystore-testlab.coderslab.pl/index.php");
         driver.findElement(By.id("_desktop_user_info")).click();
 
@@ -39,10 +52,11 @@ public class zad2 {
 
 
 //dodaj produkt do koszyka,
-       // driver.findElement(By.className("add")).click();
+       driver.findElement(By.className("add")).click();
 
 //przejdzie do opcji - checkout,
-       driver.findElement(By.cssSelector("div.cart-content-btn a")).click();
+      // driver.findElement(By.cssSelector("div.cart-content-btn a")).click();
+        //driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div[2]/div/div/a")).click();
        driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/div[1]/div[2]/div/a")).click();
 
 //potwierdzi address (możesz go dodać wcześniej ręcznie),
@@ -59,5 +73,7 @@ public class zad2 {
 
 //zrobi screenshot z potwierdzeniem zamówienia i kwotą.
 
+
+        //driver.quit();
     }}
 
