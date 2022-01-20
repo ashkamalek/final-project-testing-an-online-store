@@ -1,13 +1,15 @@
 package zadania;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.concurrent.TimeUnit;
 
 public class zad2 {
@@ -52,11 +54,14 @@ public class zad2 {
 
 
 //dodaj produkt do koszyka,
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
+        wait1.until(ExpectedConditions.visibilityOfElementLocated(By.className("add")));
        driver.findElement(By.className("add")).click();
 
 //przejdzie do opcji - checkout,
-      // driver.findElement(By.cssSelector("div.cart-content-btn a")).click();
-        //driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div[2]/div/div/a")).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.cart-content-btn a")));
+       driver.findElement(By.cssSelector("div.cart-content-btn a")).click();
        driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/div[1]/div[2]/div/a")).click();
 
 //potwierdzi address (możesz go dodać wcześniej ręcznie),
@@ -64,7 +69,10 @@ public class zad2 {
 
 //wybierze metodę odbioru - PrestaShop "pick up in store",
         driver.findElement(By.id("delivery_option_1")).click();
-       // driver.findElement(By.("confirmDeliveryOption")).click();
+
+        WebDriverWait wait2 = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
+        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.delivery-options-list button")));
+        driver.findElement(By.cssSelector("div.delivery-options-list button")).click();
 //wybierze opcję płatności - Pay by Check,
 
 
