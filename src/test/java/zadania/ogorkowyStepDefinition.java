@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 public class ogorkowyStepDefinition {
 
-    @Given("an open browser with https://mystore-testlab.coderslab.pl/index.php")
-    public void browser() {
+    @Given("i launch firefox browser and open stores website")
+    public void i_launch_firefox_browser_and_open_stores_website() {
         System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
         WebDriver driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
 

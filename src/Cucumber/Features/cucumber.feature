@@ -3,7 +3,7 @@ Feature: log in on account and add address
   Scenario Outline: log in on the website https://mystore-testlab.coderslab.pl
 
 
-    Given an open browser with https://mystore-testlab.coderslab.pl/index.php
+    Given i launch firefox browser and open stores website
 
     When on the main page click on sign in
     And log in
