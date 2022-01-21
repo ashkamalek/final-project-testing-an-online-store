@@ -1,13 +1,10 @@
 package zadania;
 
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
@@ -18,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 public class zad1 {
 
     public static void main(String[] args) throws InterruptedException {
-
 
 
         //System.setProperty("webdriver.chrome.driver", "D:\\intellij for selenium\\chrome\\chromedriver.exe");
@@ -55,12 +51,6 @@ public class zad1 {
         // list.selectByValue("17");
 
 
-
-
-
-
-
         driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/footer/button")).submit();
     }
-
 }

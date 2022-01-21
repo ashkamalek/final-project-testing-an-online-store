@@ -1,6 +1,7 @@
 package zadania;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -22,50 +23,44 @@ public class ogorkowyStepDefinition {
         driver.get("https://mystore-testlab.coderslab.pl/index.php");
     }
 
-   // @When("on the main page click on sign in", () -> {
-        // Write code here that turns the phrase above into concrete actions
-       // throw new io.cucumber.java8.PendingException();
-  //  });
+    @When("on the main page click on sign in")
+    public void on_the_main_page_click_on_sign_in(){
+       driver.findElement(By.id("_desktop_user_info")).click();
+    }
 
-  //  When("log in", () -> {
-        // Write code here that turns the phrase above into concrete actions
-   //     throw new io.cucumber.java8.PendingException();
-   // });
+   @Then("log in")
+   public void log_in(){
+        driver.findElement(By.className("form-control")).sendKeys("joanna.m.malek@gmail.com");
+        driver.findElement(By.name("password")).sendKeys("PastelTropics");
+        driver.findElement(By.id("submit-login")).click();
+   }
 
-   // When("on the account site click on the +Create new address", () -> {
-   //     // Write code here that turns the phrase above into concrete actions
-   //     throw new io.cucumber.java8.PendingException();
-    //});
+   @Then("on the account site click on the Create new address")
+   public void on_the_account_site_click_on_the_Create_new_address(){
+         driver.findElement(By.id("address-link")).click();
+   }
 
    // When("refill address to the account with the following data: alias, {int} Ohua Ave, Honolulu, {int}, United Kingdom, {int}", (Integer int1, Integer int2, Integer int3) -> {
-        // Write code here that turns the phrase above into concrete actions
+        //driver.findElement(By.name("alias")).sendKeys("alias");
+    //        driver.findElement(By.name("address1")).sendKeys("201 Ohua Ave");
+    //        driver.findElement(By.name("postcode")).sendKeys("96811");
+    //        driver.findElement(By.name("city")).sendKeys("Honolulu");
+    //        driver.findElement(By.name("phone")).sendKeys("5555555");
+    //        WebElement source = driver.findElement(By.name("id_country"));
+    //        Select list = new Select(source);
+    //        list.selectByVisibleText("United Kingdom");
+    //        // list.selectByValue("17");
     //    throw new io.cucumber.java8.PendingException();
     //});
 
-    //When("click save", () -> {
-        // Write code here that turns the phrase above into concrete actions
-    //    throw new io.cucumber.java8.PendingException();
-    //});
+    @And("click save")
+    public void click_save(){
+        driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/footer/button")).submit();
+    }
 
     //Then("address on the account has been filled", () -> {
         // Write code here that turns the phrase above into concrete actions
-    //    throw new io.cucumber.java8.PendingException();
     //});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
