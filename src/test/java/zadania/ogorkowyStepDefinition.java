@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ogorkowyStepDefinition {
 
-WebDriver driver;
+    WebDriver driver;
 
     @Given("i launch firefox browser and open stores website")
     public void launchBrowser() {
@@ -32,64 +32,63 @@ WebDriver driver;
     }
 
     @When("on the main page click on sign in")
-    public void sign_In(){
+    public void sign_In() {
 
         WebElement signIn = driver.findElement(By.id("_desktop_user_info"));
         signIn.click();
     }
 
-   @Then("log in")
-   public void logIn(){
-       WebElement email = driver.findElement(By.className("form-control"));
-       email.sendKeys("joanna.m.malek@gmail.com");
+    @Then("log in")
+    public void logIn() {
+        WebElement email = driver.findElement(By.className("form-control"));
+        email.sendKeys("joanna.m.malek@gmail.com");
 
-       WebElement name = driver.findElement(By.name("password"));
-       name.sendKeys("PastelTropics");
+        WebElement name = driver.findElement(By.name("password"));
+        name.sendKeys("PastelTropics");
 
         WebElement submit = driver.findElement(By.id("submit-login"));
         submit.click();
-   }
+    }
 
-   @Then("on the account site click on the Create new address")
-   public void on_the_account_site_click_on_the_Create_new_address(){
+    @Then("on the account site click on the Create new address")
+    public void on_the_account_site_click_on_the_Create_new_address() {
         WebElement goToAddress = driver.findElement(By.id("address-link"));
         goToAddress.click();
-   }
+    }
 
-   @When("refill address to the account with the following data: alias, {int} Ohua Ave, Honolulu, {int}, United Kingdom, {int}")
-           public void refill(){
-       WebElement alias = driver.findElement(By.name("alias"));
-       alias.sendKeys("alias");
+    @When("refill address to the account with the following data: alias, {int} Ohua Ave, Honolulu, {int}, United Kingdom, {int}")
+    public void refill() {
+        WebElement alias = driver.findElement(By.name("alias"));
+        alias.sendKeys("alias");
 
-       WebElement address = driver.findElement(By.name("address1"));
-       address.sendKeys("201 Ohua Ave");
+        WebElement address = driver.findElement(By.name("address1"));
+        address.sendKeys("201 Ohua Ave");
 
         WebElement postcode = driver.findElement(By.name("postcode"));
         postcode.sendKeys("96811");
 
-         WebElement city = driver.findElement(By.name("city"));
-         city.sendKeys("Honolulu");
+        WebElement city = driver.findElement(By.name("city"));
+        city.sendKeys("Honolulu");
 
-          WebElement phone = driver.findElement(By.name("phone"));
-          phone.sendKeys("5555555");
+        WebElement phone = driver.findElement(By.name("phone"));
+        phone.sendKeys("5555555");
 
-           WebElement source = driver.findElement(By.name("id_country"));
-          Select list = new Select(source);
-           list.selectByVisibleText("United Kingdom");
-          // list.selectByValue("17");
+        WebElement source = driver.findElement(By.name("id_country"));
+        Select list = new Select(source);
+        list.selectByVisibleText("United Kingdom");
+        // list.selectByValue("17");
 
     }
 
     @And("click save")
-    public void click_save(){
+    public void click_save() {
         WebElement save = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/footer/button"));
         save.submit();
     }
 
-    //Then("address on the account has been filled", () -> {
-        // Write code here that turns the phrase above into concrete actions
-    //});
-
+    //@Then("after address on the account has been filled close browser")
+    //public void closeBrowser() {
+    //driver.quit();}
 }
 
 
