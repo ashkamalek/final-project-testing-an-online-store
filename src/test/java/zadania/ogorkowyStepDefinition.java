@@ -20,7 +20,7 @@ public class ogorkowyStepDefinition {
     @Given("i launch firefox browser and open stores website")
     public void launchBrowser() {
         System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
-        WebDriver driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
+        driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
@@ -56,7 +56,7 @@ public class ogorkowyStepDefinition {
         goToAddress.click();
     }
 
-    @When("refill address to the account with the following data: alias, {int} Ohua Ave, Honolulu, {int}, United Kingdom, {int}")
+    @When("refill address to the account with the following data: alias, 201 Ohua Ave, Honolulu, 96811, United Kingdom, 5555555")
     public void refill() {
         WebElement alias = driver.findElement(By.name("alias"));
         alias.sendKeys("alias");
@@ -86,9 +86,11 @@ public class ogorkowyStepDefinition {
         save.submit();
     }
 
-    //@Then("after address on the account has been filled close browser")
-    //public void closeBrowser() {
-    //driver.quit();}
+    @Then("delete the address")
+    public void erasing() {
+    WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
+        erasing.click();
+    }
 }
 
 

@@ -10,7 +10,7 @@ Feature: log in on account and add address
     And on the account site click on the Create new address
     When refill address to the account with the following data: <alias>, <address>, <city>, <zip/postal code>, <country>, <phone>
     And click save
-    Then after address on the account has been filled close browser
+    Then delete the address
 
     Examples:
       | alias | address     | city     | zip/postal code | country        | phone |
