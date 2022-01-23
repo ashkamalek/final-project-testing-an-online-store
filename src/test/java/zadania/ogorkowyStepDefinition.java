@@ -1,16 +1,24 @@
 package zadania;
 
 
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
 public class ogorkowyStepDefinition {
 
+WebDriver driver;
+
     @Given("i launch firefox browser and open stores website")
-    public void i_launch_firefox_browser_and_open_stores_website() {
+    public void launchBrowser() {
         System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
         WebDriver driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
 
@@ -24,38 +32,58 @@ public class ogorkowyStepDefinition {
     }
 
     @When("on the main page click on sign in")
-    public void on_the_main_page_click_on_sign_in(){
-       driver.findElement(By.id("_desktop_user_info")).click();
+    public void sign_In(){
+
+        WebElement signIn = driver.findElement(By.id("_desktop_user_info"));
+        signIn.click();
     }
 
    @Then("log in")
-   public void log_in(){
-        driver.findElement(By.className("form-control")).sendKeys("joanna.m.malek@gmail.com");
-        driver.findElement(By.name("password")).sendKeys("PastelTropics");
-        driver.findElement(By.id("submit-login")).click();
+   public void logIn(){
+       WebElement email = driver.findElement(By.className("form-control"));
+       email.sendKeys("joanna.m.malek@gmail.com");
+
+       WebElement name = driver.findElement(By.name("password"));
+       name.sendKeys("PastelTropics");
+
+        WebElement submit = driver.findElement(By.id("submit-login"));
+        submit.click();
    }
 
    @Then("on the account site click on the Create new address")
    public void on_the_account_site_click_on_the_Create_new_address(){
-         driver.findElement(By.id("address-link")).click();
+        WebElement goToAddress = driver.findElement(By.id("address-link"));
+        goToAddress.click();
    }
 
-   // When("refill address to the account with the following data: alias, {int} Ohua Ave, Honolulu, {int}, United Kingdom, {int}", (Integer int1, Integer int2, Integer int3) -> {
-        //driver.findElement(By.name("alias")).sendKeys("alias");
-    //        driver.findElement(By.name("address1")).sendKeys("201 Ohua Ave");
-    //        driver.findElement(By.name("postcode")).sendKeys("96811");
-    //        driver.findElement(By.name("city")).sendKeys("Honolulu");
-    //        driver.findElement(By.name("phone")).sendKeys("5555555");
-    //        WebElement source = driver.findElement(By.name("id_country"));
-    //        Select list = new Select(source);
-    //        list.selectByVisibleText("United Kingdom");
-    //        // list.selectByValue("17");
-    //    throw new io.cucumber.java8.PendingException();
-    //});
+   @When("refill address to the account with the following data: alias, {int} Ohua Ave, Honolulu, {int}, United Kingdom, {int}")
+           public void refill(){
+       WebElement alias = driver.findElement(By.name("alias"));
+       alias.sendKeys("alias");
+
+       WebElement address = driver.findElement(By.name("address1"));
+       address.sendKeys("201 Ohua Ave");
+
+        WebElement postcode = driver.findElement(By.name("postcode"));
+        postcode.sendKeys("96811");
+
+         WebElement city = driver.findElement(By.name("city"));
+         city.sendKeys("Honolulu");
+
+          WebElement phone = driver.findElement(By.name("phone"));
+          phone.sendKeys("5555555");
+
+           WebElement source = driver.findElement(By.name("id_country"));
+          Select list = new Select(source);
+           list.selectByVisibleText("United Kingdom");
+          // list.selectByValue("17");
+
+    }
 
     @And("click save")
     public void click_save(){
-        driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/footer/button")).submit();
+        WebElement save = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/footer/button"));
+        save.submit();
     }
 
     //Then("address on the account has been filled", () -> {
