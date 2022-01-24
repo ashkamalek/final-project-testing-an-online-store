@@ -86,15 +86,22 @@ public class ogorkowyStepDefinition {
         save.submit();
     }
 
-    @Then("delete the address")
-    public void erasing() {
-    //WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
-      //  erasing.click();
+  //  @Then("delete the address")
+  //  public void erasing() {
+  //      WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
+  //      erasing.click();
 
-        //driver.quit();
+   //     if(driver.findElement(By.id("notifications"))!= null){
+   //         System.out.println("Element is Present: Address successfully deleted!");
+   //     }
+  //      else{
+  //          System.out.println("Element is Absent");
+  //      }
 
+            //driver.quit();
+
+   //     }
     }
-}
 
 
 

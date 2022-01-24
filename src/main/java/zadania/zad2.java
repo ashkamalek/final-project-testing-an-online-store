@@ -45,6 +45,14 @@ public class zad2 {
         Select list = new Select(source1);
         list.selectByValue("2");
 //wybierze 5 sztuk według parametru podanego w teście,
+        WebDriverWait wait3 = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
+        wait3.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".touchspin-up")));
+
+WebElement button = driver.findElement(By.cssSelector(".touchspin-up"));
+
+    for (int i=1; i < 5; i ++) {
+            button.click();
+        }
 
 
 //dodaj produkt do koszyka,
@@ -53,7 +61,7 @@ public class zad2 {
        driver.findElement(By.className("add")).click();
 
 //przejdzie do opcji - checkout,
-        WebDriverWait wait = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
+       WebDriverWait wait = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.cart-content-btn a")));
        driver.findElement(By.cssSelector("div.cart-content-btn a")).click();
        driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/div[1]/div[2]/div/a")).click();
