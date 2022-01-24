@@ -5,12 +5,17 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.concurrent.TimeUnit;
 
 public class ogorkowyStepDefinition {
@@ -56,10 +61,30 @@ public class ogorkowyStepDefinition {
         goToAddress.click();
     }
 
-    @When("refill address to the account with the following data: alias, 201 Ohua Ave, Honolulu, 96811, United Kingdom, 5555555")
+    @When("refill address to the account with the following data: kot, 201 Ohua Ave, Honolulu, 96811, United Kingdom, 5555555")
     public void refill() {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("alias")));
+
         WebElement alias = driver.findElement(By.name("alias"));
-        alias.sendKeys("alias");
+        alias.sendKeys("kot");
+
+        String expected  = "kot";
+        String actual = alias.getText();
+        Assert.assertEquals(expected, actual);
+        System.out.println(actual);
+
+        if(expected.equals(actual)){
+            System.out.println("Pass");
+        }
+        else {
+            System.out.println("Fail");
+        }
+
+
+
+
       //  alias.getAttribute("alias");
       //  Assert.assertNotEquals(driver.getCurrentUrl(), "https://www.lambdatest.com/");
 

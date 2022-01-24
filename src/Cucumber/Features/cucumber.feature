@@ -14,4 +14,4 @@ Feature: log in on account and add address
 
     Examples:
       | alias | address     | city     | zip/postal code | country        | phone |
-      | alias | 201 Ohua Ave| Honolulu | 96811           | United Kingdom | 5555555 |
+      | kot   | 201 Ohua Ave| Honolulu | 96811           | United Kingdom | 5555555 |
