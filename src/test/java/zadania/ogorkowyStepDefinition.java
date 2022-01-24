@@ -73,6 +73,7 @@ public class ogorkowyStepDefinition {
         String expected  = "kot";
         String actual = alias.getText();
         Assert.assertEquals(expected, actual);
+
         System.out.println(actual);
 
         if(expected.equals(actual)){
@@ -85,13 +86,6 @@ public class ogorkowyStepDefinition {
 
 
 
-      //  alias.getAttribute("alias");
-      //  Assert.assertNotEquals(driver.getCurrentUrl(), "https://www.lambdatest.com/");
-
-     //   String strng = alias.getText();
-     //   System.out.println(strng);
-     //   Assert.assertEquals("alias", strng);
-
 
 
       //  String bodyText = driver.findElement(By.tagName("body")).getText();
@@ -99,40 +93,7 @@ public class ogorkowyStepDefinition {
 
 
 
-       // WebDriver driver = new ChromeDriver();
-       // driver.navigate().to("https://www.browserstack.com/");
-       // String ActualTitle = driver.getTitle();
-       // String verifyAssertNull=null;
-       // String ExpectedTitle = "Most Reliable App & Cross Browser Testing Platform | BrowserStack";
-      //  Boolean verifyTitleIsPresent=driver.getTitle().equalsIgnoreCase("Most Reliable App & Cross Browser Testing Platform | BrowserStack");
-       // Boolean verifyTitleIsChanged=driver.getTitle().equalsIgnoreCase("Testing Platform | BrowserStack");
-      //  assertEquals(ExpectedTitle, ActualTitle);
-       // assertNotEquals(ExpectedTitle, "browserstack");
-       // assertTrue(verifyTitleIsPresent);
-       // assertFalse(verifyTitleIsChanged);
-       // assertNotNull(verifyTitleIsPresent);
-        //  assertNull(verifyAssertNull);
-  //  }
 
-
-
-
-
-
-
-         //   System.out.println("Services is displayed by Default.");
-     // }
-
-
-
-      //  WebElement inputBox = driver.findElement(By.id("inputBoxId"));
-      //  String textInsideInputBox = inputBox.getAttribute("value");
-
-// Check whether input field is blank
-      //  if(textInsideInputBox.isEmpty())
-       // {
-        //    System.out.println("Input field is empty");
-      //  }
 
 
 
