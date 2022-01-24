@@ -15,17 +15,11 @@ import java.util.concurrent.TimeUnit;
 public class zad2 {
     public static void main(String[] args) {
 
-
-
         System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
         WebDriver driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
 
-
-
-
        // System.setProperty("webdriver.opera.driver", "D:\\intellij for selenium\\opera\\operadriver_win64\\operadriver.exe");
        // WebDriver driver = new OperaDriver();
-
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
@@ -71,8 +65,8 @@ public class zad2 {
         driver.findElement(By.id("delivery_option_1")).click();
 
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
-        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.delivery-options-list button")));
-        driver.findElement(By.cssSelector("div.delivery-options-list button")).click();
+        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.name("confirmDeliveryOption")));
+        driver.findElement(By.name("confirmDeliveryOption")).click();
 //wybierze opcję płatności - Pay by Check,
 
 
