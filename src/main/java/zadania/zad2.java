@@ -73,8 +73,8 @@ WebElement button = driver.findElement(By.cssSelector(".touchspin-up"));
         driver.findElement(By.id("delivery_option_1")).click();
 
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
-        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.name("confirmDeliveryOption")));
-        driver.findElement(By.name("confirmDeliveryOption")).click();
+        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/div/section/div/div[1]/section[3]/div/div[2]/form/button")));
+        driver.findElement(By.xpath("/html/body/section/div/section/div/div[1]/section[3]/div/div[2]/form/button")).click();
 //wybierze opcję płatności - Pay by Check,
 
 
