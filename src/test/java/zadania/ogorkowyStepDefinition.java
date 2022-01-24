@@ -10,12 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
 import java.util.concurrent.TimeUnit;
 
 public class ogorkowyStepDefinition {
@@ -64,42 +60,9 @@ public class ogorkowyStepDefinition {
     @When("refill address to the account with the following data: kot, 201 Ohua Ave, Honolulu, 96811, United Kingdom, 5555555")
     public void refill() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("alias")));
 
         WebElement alias = driver.findElement(By.name("alias"));
         alias.sendKeys("kot");
-
-        String expected  = "kot";
-        String actual = alias.getText();
-        Assert.assertEquals(expected, actual);
-
-        System.out.println(actual);
-
-        if(expected.equals(actual)){
-            System.out.println("Pass");
-        }
-        else {
-            System.out.println("Fail");
-        }
-
-
-
-
-
-
-      //  String bodyText = driver.findElement(By.tagName("body")).getText();
-      //  Assert.assertTrue("Text not found!", bodyText.contains(text));
-
-
-
-
-
-
-
-
-
-
 
         WebElement address = driver.findElement(By.name("address1"));
         address.sendKeys("201 Ohua Ave");
@@ -118,46 +81,48 @@ public class ogorkowyStepDefinition {
         list.selectByVisibleText("United Kingdom");
         // list.selectByValue("17");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     @And("click save")
     public void click_save() {
         WebElement save = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/footer/button"));
         save.submit();
+
+WebElement check = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/h4"));
+        String expected  = "kot";
+           String actual = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/h4")).getText();
+           Assert.assertEquals(expected, actual);
+
+          System.out.println(actual);
+
+        WebElement check1 = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address"));
+        String expected1  = "Joanna Malek\n" +
+                "201 Ohua Ave\n" +
+                "Honolulu\n" +
+                "96811\n" +
+                "United Kingdom\n" +
+                "5555555";
+        String actual1 = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address")).getText();
+        Assert.assertEquals(expected1, actual1);
+
+        System.out.println(actual1);
     }
 
-  //  @Then("delete the address")
-  //  public void erasing() {
-  //      WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
-  //      erasing.click();
+   // @Then("delete the address")
+   // public void erasing() {
+   //     WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
+   //     erasing.click();
 
-  //      if(driver.findElement(By.id("notifications"))!= null){
-  //          System.out.println("Element is Present: Address successfully deleted!");
-  //      }
-  //      else{
-  //          System.out.println("Element is Absent");
-  //     }
+   //     if(driver.findElement(By.id("notifications"))!= null){
+   //         System.out.println("Element is Present: Address successfully deleted!");
+   //     }
+   //     else{
+   //         System.out.println("Element is Absent");
+   //   }
 
             //driver.quit();
 
-  //      }
+   //     }
     }
 
 
