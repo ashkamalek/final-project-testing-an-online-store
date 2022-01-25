@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
-public class ogorkowyStepDefinition {
+public class StepDefinition1 {
 
     WebDriver driver;
 
@@ -93,10 +93,10 @@ WebElement check = driver.findElement(By.xpath("/html/body/main/section/div/div/
            String actual = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/h4")).getText();
            Assert.assertEquals(expected, actual);
 
-          System.out.println(actual);
+          System.out.println("Provided alias: " + actual);
 
         WebElement check1 = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address"));
-        String expected1  = "Joanna Malek\n" +
+        String expected1 = "Joanna Malek\n" +
                 "201 Ohua Ave\n" +
                 "Honolulu\n" +
                 "96811\n" +
@@ -105,7 +105,7 @@ WebElement check = driver.findElement(By.xpath("/html/body/main/section/div/div/
         String actual1 = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address")).getText();
         Assert.assertEquals(expected1, actual1);
 
-        System.out.println(actual1);
+        System.out.println("Provided data: " + actual1);
     }
 
    // @Then("The User deletes his Data by clicking the Delete button, after which The User receives a message confirming his Data has been deleted")
