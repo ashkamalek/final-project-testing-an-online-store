@@ -3,7 +3,7 @@ package zadania;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,8 +15,11 @@ import java.util.concurrent.TimeUnit;
 public class zad2 {
     public static void main(String[] args) {
 
-        System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
-        WebDriver driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
+       // System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
+       // WebDriver driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
+
+        System.setProperty("webdriver.chrome.driver", "D:\\intellij for selenium\\SeleniumCourse2\\src\\main\\sources\\drivers\\chromedriver.exe");
+         WebDriver driver = new ChromeDriver();
 
        // System.setProperty("webdriver.opera.driver", "D:\\intellij for selenium\\opera\\operadriver_win64\\operadriver.exe");
        // WebDriver driver = new OperaDriver();

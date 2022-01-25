@@ -88,12 +88,12 @@ public class StepDefinition1 {
         WebElement save = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/footer/button"));
         save.submit();
 
-WebElement check = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/h4"));
-        String expected  = "kot";
-           String actual = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/h4")).getText();
-           Assert.assertEquals(expected, actual);
+        WebElement check = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/h4"));
+        String expected = "kot";
+        String actual = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/h4")).getText();
+        Assert.assertEquals(expected, actual);
 
-          System.out.println("Provided alias: " + actual);
+        System.out.println("Provided alias: " + actual);
 
         WebElement check1 = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address"));
         String expected1 = "Joanna Malek\n" +
@@ -108,21 +108,29 @@ WebElement check = driver.findElement(By.xpath("/html/body/main/section/div/div/
         System.out.println("Provided data: " + actual1);
     }
 
-   // @Then("The User deletes his Data by clicking the Delete button, after which The User receives a message confirming his Data has been deleted")
-   // public void erasing() {
-   //     WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
-   //     erasing.click();
+    @Then("The User deletes his Data by clicking the Delete button, after which The User receives a message confirming his Data has been deleted")
+    public void erasing() {
+        WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
+        erasing.click();
 
-   //     if(driver.findElement(By.id("notifications"))!= null){
-   //         System.out.println("Element is Present: Address successfully deleted!");
-   //     }
-   //     else{
-   //         System.out.println("Element is Absent");
-   //   }
+        WebElement check1 = driver.findElement(By.id("notifications"));
 
-            //driver.quit();
+        Assert.assertNotNull(check1);
 
-   //     }
+
+        }
+
+
+        //     if(driver.findElement(By.id("notifications"))!= null){
+        //         System.out.println("Element is Present: Address successfully deleted!");
+        //     }
+        //     else{
+        //         System.out.println("Element is Absent");
+        //   }
+
+        //driver.quit();
+
+        //     }
     }
 
 
