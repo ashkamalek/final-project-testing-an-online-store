@@ -54,7 +54,6 @@ WebElement button = driver.findElement(By.cssSelector(".touchspin-up"));
             button.click();
         }
 
-
 //dodaj produkt do koszyka,
         WebDriverWait wait1 = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
         wait1.until(ExpectedConditions.visibilityOfElementLocated(By.className("add")));
@@ -73,10 +72,12 @@ WebElement button = driver.findElement(By.cssSelector(".touchspin-up"));
         driver.findElement(By.id("delivery_option_1")).click();
 
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
-        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/div/section/div/div[1]/section[3]/div/div[2]/form/button")));
-        driver.findElement(By.xpath("/html/body/section/div/section/div/div[1]/section[3]/div/div[2]/form/button")).click();
+        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"js-delivery\"]")));
+        driver.findElement(By.xpath("//*[@id=\"js-delivery\"]")).click();
 //wybierze opcję płatności - Pay by Check,
-
+//<button type="submit" class="continue btn btn-primary float-xs-right" name="confirmDeliveryOption" value="1">
+              //  Continue
+               // </button>
 
 //kliknie na "order with an obligation to pay",
 
