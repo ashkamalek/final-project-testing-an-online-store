@@ -1,6 +1,6 @@
-Feature: create a new account and add address and contact details
+Feature: Create a new account and add address and contact details
 
-  Scenario Outline: create a new account on https://mystore-testlab.coderslab.pl that contains address and contact details
+  Scenario Outline: Create a new account on https://mystore-testlab.coderslab.pl that contains address and contact details
 
 
     Given The User launches Firefox browser and opens stores website
