@@ -1,4 +1,4 @@
-package zadania;
+package steps;
 
 
 import io.cucumber.java.en.And;
@@ -53,7 +53,7 @@ public class StepDefinition1 {
     }
 
     @Then("The User fills in email address and password of his new account and clicks the Sign in button")
-    public void logIn() {
+    public void signIn() {
         WebElement email = driver.findElement(By.className("form-control"));
         email.sendKeys("joanna.m.malek@gmail.com");
 

@@ -1,4 +1,4 @@
-package zadania;
+package steps;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -75,8 +75,8 @@ WebElement button = driver.findElement(By.cssSelector(".touchspin-up"));
         driver.findElement(By.id("delivery_option_1")).click();
 
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.of(15, ChronoUnit.SECONDS));
-        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.continue:nth-child(2)")));
-        driver.findElement(By.cssSelector("button.continue:nth-child(2)")).click();
+        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@name='confirmDeliveryOption']")));
+        driver.findElement(By.xpath("//*[@name='confirmDeliveryOption']")).click();
 //wybierze opcję płatności - Pay by Check,
 //<button type="submit" class="continue btn btn-primary float-xs-right" name="confirmDeliveryOption" value="1">
               //  Continue
