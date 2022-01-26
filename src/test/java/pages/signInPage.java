@@ -13,18 +13,20 @@ By txt_password = By.name("password");
 
 By btn_signIn = By.id("submit-login");
 
-public void enterEmail(){
+public void enterEmail(String joanna.m.malek@gmail.com) {
 
-driver.findElement(txt_email).sendKeys("joanna.m.malek@gmail.com");
+   driver.findElement(txt_email).sendKeys(joanna.m.malek@gmail.com);
+}
 
-
-
-
-
+public void enterPassword (String PastelTropics){
+driver.findElement(txt_password).sendKeys(PastelTropics);
 
 }
 
+public void clickSignIn(){
 
+   driver.findElement(btn_signIn).click();
+}
 
   //  WebElement email = driver.findElement(By.className("form-control"));
    //     email.sendKeys("joanna.m.malek@gmail.com");
