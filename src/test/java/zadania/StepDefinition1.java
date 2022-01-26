@@ -9,7 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,13 +25,13 @@ public class StepDefinition1 {
     @Given("The User launches Firefox browser and opens stores website")
     public void launchBrowser() {
 
-        System.setProperty("webdriver.chrome.driver", "D:\\intellij for selenium\\SeleniumCourse2\\src\\main\\sources\\drivers\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+      //  System.setProperty("webdriver.chrome.driver", "D:\\intellij for selenium\\SeleniumCourse2\\src\\main\\sources\\drivers\\chromedriver.exe");
+      //  WebDriver driver = new ChromeDriver();
 
 
 
-      //  System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
-      //  driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
+        System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
+        driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
@@ -44,7 +44,7 @@ public class StepDefinition1 {
 
     @When("While on the landing page of that site, the User clicks on the Sign in button to create a new account")
     public void sign_In() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.of(20, ChronoUnit.SECONDS));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("_desktop_user_info")));
         WebElement signIn = driver.findElement(By.id("_desktop_user_info"));
         signIn.click();

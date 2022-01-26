@@ -48,6 +48,15 @@
             <artifactId>selenium-opera-driver</artifactId>
             <version>4.1.1</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-jvm -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-jvm</artifactId>
+            <version>6.8.1</version>
+            <type>pom</type>
+        </dependency>
+
     </dependencies>
 
 </project>
