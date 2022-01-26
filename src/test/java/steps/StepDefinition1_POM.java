@@ -1,32 +1,15 @@
 package steps;
 
-
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
-import java.util.concurrent.TimeUnit;
-
-public class StepDefinition1 {
+/*public class StepDefinition1_POM {
 
     WebDriver driver;
+ //   signInPage signInUser;
 
     @Given("The User launches Firefox browser and opens stores website")
     public void launchBrowser() {
 
-      //  System.setProperty("webdriver.chrome.driver", "D:\\intellij for selenium\\SeleniumCourse2\\src\\main\\sources\\drivers\\chromedriver.exe");
-      //  WebDriver driver = new ChromeDriver();
+        //  System.setProperty("webdriver.chrome.driver", "D:\\intellij for selenium\\SeleniumCourse2\\src\\main\\sources\\drivers\\chromedriver.exe");
+        //  WebDriver driver = new ChromeDriver();
 
 
 
@@ -44,6 +27,7 @@ public class StepDefinition1 {
 
     @When("While on the landing page of that site, the User clicks on the Sign in button to create a new account")
     public void sign_In() {
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.of(20, ChronoUnit.SECONDS));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("_desktop_user_info")));
         WebElement signIn = driver.findElement(By.id("_desktop_user_info"));
@@ -54,14 +38,23 @@ public class StepDefinition1 {
     @Then("The User fills in email address and password of his new account and clicks the Sign in button")
     public void signIn() {
 
-       WebElement email = driver.findElement(By.className("form-control"));
-       email.sendKeys("joanna.m.malek@gmail.com");
 
-       WebElement name = driver.findElement(By.name("password"));
-       name.sendKeys("PastelTropics");
+       // signInPage signInUser = new signInPage(driver);
 
-       WebElement submit = driver.findElement(By.id("submit-login"));
-       submit.click();
+//signInUser.enterEmail();
+//signInUser.enterPassword();
+//signInUser.clickSignIn();
+
+
+
+        WebElement email = driver.findElement(By.className("form-control"));
+        email.sendKeys("joanna.m.malek@gmail.com");
+
+        WebElement name = driver.findElement(By.name("password"));
+        name.sendKeys("PastelTropics");
+
+        WebElement submit = driver.findElement(By.id("submit-login"));
+        submit.click();
     }
 
     @Then("While on the account page, the User clicks on the Create new address button")
@@ -121,31 +114,31 @@ public class StepDefinition1 {
         System.out.println("Provided data: " + actual1);
     }
 
-  //  @Then("The User deletes his Data by clicking the Delete button, after which The User receives a message confirming his Data has been deleted")
-  //  public void erasing() {
-  //      WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
-  //      erasing.click();
+    //  @Then("The User deletes his Data by clicking the Delete button, after which The User receives a message confirming his Data has been deleted")
+    //  public void erasing() {
+    //      WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
+    //      erasing.click();
 
-  //      WebElement check1 = driver.findElement(By.id("notifications"));
+    //      WebElement check1 = driver.findElement(By.id("notifications"));
 
-        //Assert.assertNotNull(check1);
-   //     Assert.assertNull(check1);
+    //Assert.assertNotNull(check1);
+    //     Assert.assertNull(check1);
 
-        }
+}
 
 
-        //     if(driver.findElement(By.id("notifications"))!= null){
-        //         System.out.println("Element is Present: Address successfully deleted!");
-        //     }
-        //     else{
-        //         System.out.println("Element is Absent");
-        //   }
+//     if(driver.findElement(By.id("notifications"))!= null){
+//         System.out.println("Element is Present: Address successfully deleted!");
+//     }
+//     else{
+//         System.out.println("Element is Absent");
+//   }
 
-        //driver.quit();
+//driver.quit();
 
-        //     }
- //   }
-
+//     }
+//   }
+*/
 
 
 

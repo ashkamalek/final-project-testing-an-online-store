@@ -1,9 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-public class signInPage {
+/*public class signInPage {
 
    WebDriver driver;
 
@@ -13,18 +10,31 @@ By txt_password = By.name("password");
 
 By btn_signIn = By.id("submit-login");
 
-public void enterEmail(String joanna.m.malek@gmail.com) {
+public signInPage(WebDriver driver){
 
-   driver.findElement(txt_email).sendKeys(joanna.m.malek@gmail.com);
+this.driver = driver;
+
 }
 
-public void enterPassword (String PastelTropics){
-driver.findElement(txt_password).sendKeys(PastelTropics);
+public void enterEmail() {
+
+   driver.findElement(txt_email).sendKeys("joanna.m.malek@gmail.com");
+}
+
+public void enterPassword (){
+driver.findElement(txt_password).sendKeys("PastelTropics");
 
 }
 
 public void clickSignIn(){
 
+   driver.findElement(btn_signIn).click();
+}
+
+public void signInUser(){
+
+   driver.findElement(txt_email).sendKeys("joanna.m.malek@gmail.com");
+   driver.findElement(txt_password).sendKeys("PastelTropics");
    driver.findElement(btn_signIn).click();
 }
 
@@ -41,3 +51,4 @@ public void clickSignIn(){
 
 
 }
+*/

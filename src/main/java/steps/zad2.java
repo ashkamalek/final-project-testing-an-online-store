@@ -86,6 +86,17 @@ WebElement button = driver.findElement(By.cssSelector(".touchspin-up"));
 
 
 //zrobi screenshot z potwierdzeniem zamówienia i kwotą.
+      //  TakesScreenshot screenshot = (TakesScreenshot)driver;
+//Take screenshot (will be saved in default location) and automatically removed after test
+      //  File tmpScreenshot = screenshot.getScreenshotAs(OutputType.FILE);
+//Copy the screenshot to desired location
+//Path to the location to save screenshot
+//(directory for screenshots MUST exist: C:\test-evidence) e.g.:
+      //  String currentDateTime = LocalDateTime.now().toString().replaceAll(":", "_");
+      //  Files.copy(tmpScreenshot.toPath(), Paths.get("C:", "test-evidence", "registration-success-evidence-12-"+currentDateTime+".png"));
+
+
+
 
 
         //driver.quit();
