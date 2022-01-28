@@ -70,39 +70,39 @@ public class StepDefinition1 {
         goToAddress.click();
     }
 
-    @When("The User fills in the form with the following data: kot, 201 Ohua Ave, Honolulu, 96811, United Kingdom, 5555555")
-    public void refill() {
+    @When("The User fills in the form with the following data: {string}, {string}, {string}, {string}, {string}, {string}")
+    public void refill(String alias, String address, String postal_code, String city, String phone, String country) {
 
+        WebElement alias1 = driver.findElement(By.name("alias"));
+        alias1.sendKeys(alias);
 
-        WebElement alias = driver.findElement(By.name("alias"));
-        alias.sendKeys("kot");
+        WebElement address1 = driver.findElement(By.name("address1"));
+        address1.sendKeys(address);
 
-        WebElement address = driver.findElement(By.name("address1"));
-        address.sendKeys("201 Ohua Ave");
+        WebElement postcode1 = driver.findElement(By.name("postcode"));
+        postcode1.sendKeys(postal_code);
 
-        WebElement postcode = driver.findElement(By.name("postcode"));
-        postcode.sendKeys("96811");
+        WebElement city1 = driver.findElement(By.name("city"));
+        city1.sendKeys(city);
 
-        WebElement city = driver.findElement(By.name("city"));
-        city.sendKeys("Honolulu");
-
-        WebElement phone = driver.findElement(By.name("phone"));
-        phone.sendKeys("5555555");
+        WebElement phone1 = driver.findElement(By.name("phone"));
+        phone1.sendKeys(phone);
 
         WebElement source = driver.findElement(By.name("id_country"));
         Select list = new Select(source);
-        list.selectByVisibleText("United Kingdom");
+        list.selectByVisibleText(country);
         // list.selectByValue("17");
 
     }
 
-    @And("The User saves changes by clicking the Save button, after which The User can verify the correctness of the Data provided")
-    public void click_save() {
+    @And("The User saves changes by clicking the Save button, after which The User can verify the correctness of the Data provided: {string}, {string}, {string}, {string}, {string}, {string}")
+    public void click_save(String alias, String address, String postal_code, String city, String phone, String country) {
         WebElement save = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/footer/button"));
         save.submit();
 
+
         WebElement check = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/h4"));
-        String expected = "kot";
+        String expected = alias;
         String actual = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/h4")).getText();
         Assert.assertEquals(expected, actual);
 
@@ -110,41 +110,41 @@ public class StepDefinition1 {
 
         WebElement check1 = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address"));
         String expected1 = "Joanna Malek\n" +
-                "201 Ohua Ave\n" +
-                "Honolulu\n" +
-                "96811\n" +
-                "United Kingdom\n" +
-                "5555555";
+                address + "\n" +
+                city + "\n" +
+                postal_code + "\n" +
+                country + "\n" +
+                phone;
         String actual1 = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address")).getText();
         Assert.assertEquals(expected1, actual1);
 
         System.out.println("Provided data: " + actual1);
     }
 
-  //  @Then("The User deletes his Data by clicking the Delete button, after which The User receives a message confirming his Data has been deleted")
-  //  public void erasing() {
-  //      WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
-  //      erasing.click();
+    @Then("The User deletes his Data by clicking the Delete button, after which The User receives a message confirming his Data has been deleted")
+    public void erasing() {
+        WebElement erasing = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]"));
+        erasing.click();
 
-  //      WebElement check1 = driver.findElement(By.id("notifications"));
+       WebElement check1 = driver.findElement(By.id("notifications"));
 
-        //Assert.assertNotNull(check1);
+        Assert.assertNotNull(check1);
    //     Assert.assertNull(check1);
 
-        }
 
 
-        //     if(driver.findElement(By.id("notifications"))!= null){
-        //         System.out.println("Element is Present: Address successfully deleted!");
-        //     }
-        //     else{
-        //         System.out.println("Element is Absent");
-        //   }
+
+            if(driver.findElement(By.id("notifications"))!= null){
+                System.out.println("Element is Present: Address successfully deleted!");
+            }
+             else{
+                 System.out.println("Element is Absent");
+           }
 
         //driver.quit();
 
-        //     }
- //   }
+            }
+    }
 
 
 
