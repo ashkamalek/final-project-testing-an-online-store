@@ -141,7 +141,7 @@ public class StepDefinition1 {
                  System.out.println("Element is Absent");
            }
 
-        //driver.quit();
+        driver.quit();
 
             }
     }

@@ -124,6 +124,6 @@ WebElement button = driver.findElement(By.cssSelector(".touchspin-up"));
 
         driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[2]/a[2]")).click();
 
-        //driver.quit();
+        driver.quit();
     }}
 
