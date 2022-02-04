@@ -15,5 +15,6 @@ Feature: Create a new account and add address and contact details
     Examples:
       | alias | address       | city     | postal_code | country        | phone   |
       | y     | 201 Ohua Ave  | Honolulu | 96811       | United Kingdom | 5555555 |
-      | x     | Starobojarska | London   | 112         | United Kingdom | 6666666 |
-      | z     | Filipinska    | Lapy     | 111         | United Kingdom | 88888888|
+      | x     | Piccadilly    | London   | 78654       | United Kingdom | 6666666 |
+      | z     | Tverskaya     | Moscow   | 86424       | United Kingdom | 7777777 |
+      | w     | Suurkatu      | Helsinki | 85467       | United Kingdom | 8888888 |
