@@ -9,8 +9,32 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <version.surefire.plugin>3.0.0-M5</version.surefire.plugin>
+        <version.download-maven-plugin>1.6.1</version.download-maven-plugin>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <version.guava>31.0.1-jre</version.guava>
+        <version.testng>7.6.1</version.testng>
+        <version.selenium>4.8.1</version.selenium>
+        <version.selenium.server>4.8.1</version.selenium.server>
+        <version.aspectj>1.9.19</version.aspectj>
+        <version.allure>2.21.0</version.allure>
+        <version.allure.maven>2.8</version.allure.maven>
+        <version.allure.reports>2.8.0</version.allure.reports>
+        <driver.folder>drivers/</driver.folder>
+        <test.data.folder>amazon/</test.data.folder>
+        <allure.results.path>target/allure-results</allure.results.path>
+        <version.chromedriver>110.0.5481.77</version.chromedriver>
+        <md5.chromedriver>5382dfdd7e76113a3d95e1bb4e43bca7</md5.chromedriver>
+        <version.geckodriver>v0.29.0</version.geckodriver>
+        <!-- 32 bit
+        <md5.geckodriver>dc1f5f2d3bc32565e59f1ce3a32b8d3d</md5.geckodriver>
+        -->
+        <md5.geckodriver>8e19f65e730bd5960e87c7e42c88c5a7</md5.geckodriver>
+        <version.edgedriver>89.0.774.63</version.edgedriver>
+        <md5.edgedriver>6a82870f093a9a7d7972a4cfa331f72c</md5.edgedriver>
+        <version.slf4j.nop>2.0.6</version.slf4j.nop>
+        <version.log4j>2.14.1</version.log4j>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -28,11 +52,30 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.googlecode.maven-download-plugin</groupId>
+            <artifactId>download-maven-plugin</artifactId>
+            <version>${version.download-maven-plugin}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>4.0.0-alpha-2</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.2.3</version>
+            <version>6.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>6.8.1</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
@@ -41,6 +84,49 @@
             <artifactId>cucumber-junit</artifactId>
             <version>7.2.3</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${version.aspectj}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${version.allure}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${version.guava}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>${version.slf4j.nop}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${version.log4j}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${version.log4j}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${version.selenium}</version>
         </dependency>
 
         <dependency>
@@ -65,5 +151,104 @@
         </dependency>
 
     </dependencies>
+
+
+    <build>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+        </resource>
+    </resources>
+    <testResources>
+        <testResource>
+            <directory>src/test/resources</directory>
+        </testResource>
+    </testResources>
+
+
+    <plugins>
+    <!-- Downloading chrome driver executable -->
+    <plugin>
+        <groupId>com.googlecode.maven-download-plugin</groupId>
+        <artifactId>download-maven-plugin</artifactId>
+        <version>${version.download-maven-plugin}</version>
+        <executions>
+            <execution>
+                <id>install-chrome-driver-windows32</id>
+                <phase>process-resources</phase>
+                <goals>
+                    <goal>wget</goal>
+                </goals>
+                <configuration>
+                    <url>https://chromedriver.storage.googleapis.com/${version.chromedriver}/chromedriver_win32.zip</url>
+                    <unpack>true</unpack>
+                    <outputDirectory>${basedir}/${driver.folder}</outputDirectory>
+                    <md5>${md5.chromedriver}</md5>
+                    <checkSignature>false</checkSignature>
+                </configuration>
+            </execution>
+            <execution>
+                <id>install-gecko-driver-windows32</id>
+                <phase>process-resources</phase>
+                <goals>
+                    <goal>wget</goal>
+                </goals>
+                <configuration>
+                    <url>https://github.com/mozilla/geckodriver/releases/download/${version.geckodriver}/geckodriver-${version.geckodriver}-win64.zip</url>
+                    <unpack>true</unpack>
+                    <outputDirectory>${basedir}/${driver.folder}</outputDirectory>
+                    <md5>${md5.geckodriver}</md5>
+                    <checkSignature>false</checkSignature>
+                </configuration>
+            </execution>
+            <execution>
+                <id>install-edge-driver-windows32</id>
+                <phase>process-resources</phase>
+                <goals>
+                    <goal>wget</goal>
+                </goals>
+                <configuration>
+                    <url>https://msedgedriver.azureedge.net/${version.edgedriver}/edgedriver_win64.zip</url>
+                    <unpack>true</unpack>
+                    <outputDirectory>${basedir}/${driver.folder}</outputDirectory>
+                    <md5>${md5.edgedriver}</md5>
+                    <checkSignature>false</checkSignature>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${version.surefire.plugin}</version>
+            <configuration>
+                <suiteXmlFiles>
+                    <suiteXmlFile>${basedir}/TestNG.xml</suiteXmlFile>
+                </suiteXmlFiles>
+                <argLine>
+                    -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${version.aspectj}/aspectjweaver-${version.aspectj}.jar"
+                </argLine>
+                <systemPropertyVariables>
+                    <driver.path>${driver.folder}</driver.path>
+                    <test.data.folder>${test.data.folder}</test.data.folder>
+                    <allure.results.directory>${basedir}/${allure.results.path}</allure.results.directory>
+
+                </systemPropertyVariables>
+            </configuration>
+            <dependencies>
+                <dependency>
+                    <groupId>org.aspectj</groupId>
+                    <artifactId>aspectjweaver</artifactId>
+                    <version>${version.aspectj}</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+
+    </plugins>
+
+
+    </build>
 
 </project>

@@ -5,7 +5,7 @@ Feature: Choose given pieces of clothing and proceed through the checkout proces
 
     Given The User launches Firefox browser and opens stores website
 
-    When
+  //  When
     And
     And
     When
