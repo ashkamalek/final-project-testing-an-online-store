@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -25,13 +26,13 @@ public class StepDefinition1 {
     @Given("The User launches Firefox browser and opens stores website")
     public void launchBrowser() {
 
-      //  System.setProperty("webdriver.chrome.driver", "D:\\intellij for selenium\\SeleniumCourse2\\src\\main\\sources\\drivers\\chromedriver.exe");
-      //  WebDriver driver = new ChromeDriver();
+      System.setProperty("webdriver.chrome.driver", "D:\\intellij for selenium\\moj projekt\\mamochoteududisctgokota\\drivers\\chromedriver.exe");
+       driver = new ChromeDriver();
 
 
 
-        System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\firefox\\geckodriver\\geckodriver.exe"); // Setting system properties of FirefoxDriver
-        driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
+        //System.setProperty("webdriver.gecko.driver", "D:\\intellij for selenium\\moj projekt\\mamochoteududisctgokota\\drivers\\geckodriver.exe"); // Setting system properties of FirefoxDriver
+        //driver = new FirefoxDriver(); //Creating an object of FirefoxDriver
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
